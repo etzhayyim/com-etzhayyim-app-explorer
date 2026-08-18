@@ -12,9 +12,9 @@
 ;; computeruse.macos — clojure.string only) plus kotoba.datom.
 {:paths ["src"
          ;; computer-use-clj host capability (IComputer + macOS host)
-         "../../../../../com-junkawasaki/computer-use-clj/src"
+         "../../../kotoba-lang/computer-use/src"
          ;; canonical kotoba Datom codec (portable .cljc)
-         "../../../orgs/kotoba-lang/kotodama/src"]
+         "../../../kotoba-lang/kotodama/src"]
  :deps {org.clojure/clojure {:mvn/version "1.12.0"}
         org.clojure/data.json {:mvn/version "2.5.1"}}
  :aliases
