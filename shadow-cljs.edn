@@ -16,7 +16,13 @@
 {:source-paths
  ["src" "test"
   ;; portable kotoba datom codec (.cljc, ADR-2605312345) — CommitDag/tx shapes
-  "../../orgs/kotoba-lang/kotodama/src"]
+  ;;
+  ;; Was "../../orgs/kotoba-lang/kotodama/src", which resolved to
+  ;; <superproject>/orgs/**orgs**/kotoba-lang/kotodama/src -- one ../ short, so
+  ;; the segment `orgs` appeared twice and the path did not exist. Even spelled
+  ;; correctly it would not have worked: kotodama/src holds kotodama/*.cljc and
+  ;; has no kotoba/datom.cljc. `kotoba.datom` lives in kotoba-lang/kotoba-datom.
+  "../../kotoba-lang/kotoba-datom/src"]
 
  :dev-http
  {8710 {:root "public"
