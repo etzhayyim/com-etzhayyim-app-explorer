@@ -11,7 +11,7 @@
    I/O is java.net.http + clojure.data.json only (no extra deps), mirroring the
    library's host-injection style."
   (:require [clojure.data.json :as json]
-            [clojure.string :as str])
+            [kotoba.lang.text :as str])
   (:import [java.net URI]
            [java.net.http HttpClient HttpRequest HttpRequest$BodyPublishers
             HttpResponse$BodyHandlers]

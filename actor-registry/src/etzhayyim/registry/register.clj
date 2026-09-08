@@ -20,7 +20,7 @@
    one that REJECTS un-vouched / duplicate actors (demonstrated below)."
   (:require [etzhayyim.registry.agent :as ag]
             [kotoba.datom :as kd]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.pprint]
             [clojure.java.io :as io])
   (:import [java.util Base64]

@@ -15,7 +15,7 @@
    codec — content-addressed + chain-verifiable, the SAME codec the /explorer
    view verifies in the browser. The visual test thus writes a real kotoba
    commit-DAG of its own results."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [computeruse.computer :as c]
             [computeruse.macos :as macos]
             [kotoba.datom :as kd]
