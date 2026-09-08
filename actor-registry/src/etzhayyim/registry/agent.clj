@@ -7,7 +7,7 @@
    JDK Ed25519 (java 15+). Raw 32-byte public key = the last 32 bytes of the
    X.509 SubjectPublicKeyInfo (fixed 12-byte Ed25519 prefix). did:key multicodec
    = 0xed 0x01 ++ rawpub, multibase base58btc ('z' prefix)."
-  (:require [clojure.string :as str])
+  (:require [kotoba.lang.text :as str])
   (:import [java.security KeyPairGenerator Signature KeyFactory]
            [java.security.spec X509EncodedKeySpec]
            [java.util Base64]))
