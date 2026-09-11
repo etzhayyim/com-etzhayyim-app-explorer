@@ -4,9 +4,9 @@
   "private": true,
   "description": "etzhayyim.com apex SPA — kotoba blockchain explorer + node distribution + organism (serverless, browser-side). ADR-2606201610.",
   "scripts": {
-    "dev": "shadow-cljs watch app",
-    "build": "shadow-cljs release app",
-    "test": "shadow-cljs compile test && node out/node-tests.js",
+    "dev": "amu compile --target wasm32-browser app",
+    "build": "amu compile --target wasm32-browser app",
+    "test": "amu compile --target wasm32-browser test && node out/node-tests.js",
     "deploy:prod": "npm run build && wrangler deploy"
   },
   "dependencies": {

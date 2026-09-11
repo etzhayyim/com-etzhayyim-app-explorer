@@ -44,14 +44,14 @@ committed log (mimamori's golden fixture) and confirms tamper-detection fires.
 npm install
 # point the data plane at the live apex (snapshots are not local):
 #   in public/index.html, set window.__DATA_BASE__ = "https://etzhayyim.com"
-npm run dev        # shadow-cljs watch app → http://localhost:8710 (push-state)
+npm run dev        # amu compile --target wasm32-browser app → http://localhost:8710 (push-state)
 npm test           # shadow-cljs :node-test
 ```
 
 ## Build & deploy
 
 ```sh
-npm run build      # shadow-cljs release app → public/js
+npm run build      # amu compile --target wasm32-browser app → public/js
 npm run deploy:prod  # wrangler deploy  (Worker: kotodama-explorer)
 ```
 

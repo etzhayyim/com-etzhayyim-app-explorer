@@ -185,7 +185,7 @@
      [:h3 "kotoba query · transit+json wire"]
      (cond
        (:error w) [:div.muted {:style {:font-size "12px"}}
-                   "transit wire fixture not generated (run actor-registry " [:span.mono "clojure -M:wire"] ")"]
+                   "transit wire fixture not generated (run actor-registry " [:span.mono "kbb -M:wire"] ")"]
        (nil? resp) [:div.loading "fetching Datom query response over the wire…"]
        :else
        [:div

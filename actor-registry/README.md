@@ -24,10 +24,10 @@ their own genesis like this.
 ## Run
 
 ```sh
-clojure -M:register     # mint + sign + attest the roster → public/kotoba/agents/
-clojure -M:test         # ed25519 did:key roundtrip, self-sign+witness, tamper detection
-clojure -M:wire         # encode a Datom query response as transit+json → public/kotoba/wire/
-clojure -M:sync         # live kotoba sync node on :8720 (XRPC sync.subscribe, transit+json SSE)
+kbb -M:register     # mint + sign + attest the roster → public/kotoba/agents/
+kbb -M:test         # ed25519 did:key roundtrip, self-sign+witness, tamper detection
+kbb -M:wire         # encode a Datom query response as transit+json → public/kotoba/wire/
+kbb -M:sync         # live kotoba sync node on :8720 (XRPC sync.subscribe, transit+json SSE)
 ```
 
 ## Live sync node (transit+json wire)

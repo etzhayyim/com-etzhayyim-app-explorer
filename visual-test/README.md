@@ -36,10 +36,10 @@ terminal.
 
 ```sh
 # offline self-test (mock computer + stub judge — no desktop/Ollama needed):
-clojure -M:smoke
+kbb -M:smoke
 
 # real run (screenshots the live browser, gemma judges):
-clojure -M:run
+kbb -M:run
 #   VISUAL_DISPLAY=2   capture a specific monitor (the SPA's display)
 #   VISUAL_BROWSER="Google Chrome"   which browser AppleScript drives
 #   OLLAMA_URL / OLLAMA_MODEL        override the vision endpoint/model

@@ -10,8 +10,8 @@
 ;; etzhayyim-did-web Worker at /kotoba/* and /organism/*); the browser does the
 ;; decode/compute/layout. No backend in this app.
 ;;
-;; dev:   npm run dev    (shadow-cljs watch app → :dev-http 8710, push-state)
-;; build: npm run build  (shadow-cljs release app → public/js)
+;; dev:   npm run dev    (amu compile --target wasm32-browser app → :dev-http 8710, push-state)
+;; build: npm run build  (amu compile --target wasm32-browser app → public/js)
 ;; test:  npm test       (shadow-cljs :node-test)
 {:source-paths
  ["src" "test"
@@ -45,7 +45,7 @@
    :devtools {:after-load etzhayyim.explorer.core/mount-root}
    :closure-defines
    ;; Same-origin in production (apex Worker serves the SPA + /organism + /kotoba).
-   ;; Override for local dev:  shadow-cljs watch app --config-merge ...
+   ;; Override for local dev:  amu compile --target wasm32-browser app --config-merge ...
    ;; or set window.__DATA_BASE__ in index.html.
    {etzhayyim.explorer.data/DATA-BASE ""}}
 
