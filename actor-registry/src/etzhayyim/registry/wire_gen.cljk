@@ -7,7 +7,7 @@
    the browser can decode it with transit-cljs. Keywords stay keywords on the
    wire (`:vitals.actor/cells`, `:class :alive`) — the whole point of Transit vs
    plain JSON, and what makes repeated attribute keys cache-compress."
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [cognitect.transit :as t])
   (:import [java.io ByteArrayOutputStream]))
 

@@ -13,7 +13,7 @@
 
    Note: this is the WIRE only — the CID preimage stays canonical-JSON and the
    on-disk log stays EDN."
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]
             [cognitect.transit :as t])
   (:import [java.net ServerSocket Socket]
