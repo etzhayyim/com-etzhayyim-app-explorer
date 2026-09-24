@@ -13,7 +13,7 @@
 
    Note: this is the WIRE only — the CID preimage stays canonical-JSON and the
    on-disk log stays EDN."
-  (:require [kotoba.lang.edn :as edn]
+  (:require [kotoba.bytes :as kbytes] [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]
             [cognitect.transit :as t])
   (:import [java.net ServerSocket Socket]
@@ -37,7 +37,7 @@
        (mapv (fn [[e a v _ _]] [e a v]))))
 
 (defn- write-line [^OutputStream out ^String s]
-  (.write out (.getBytes s "UTF-8")) (.flush out))
+  (.write out (kbytes/utf8-bytes s)) (.flush out))
 
 (def ^:private sse-headers
   (str "HTTP/1.1 200 OK\r\n"

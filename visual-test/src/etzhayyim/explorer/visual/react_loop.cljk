@@ -15,7 +15,7 @@
    codec — content-addressed + chain-verifiable, the SAME codec the /explorer
    view verifies in the browser. The visual test thus writes a real kotoba
    commit-DAG of its own results."
-  (:require [kotoba.lang.text :as str]
+  (:require [kotoba.bytes :as kbytes] [kotoba.io :as kio] [kotoba.lang.text :as str]
             [computeruse.computer :as c]
             [computeruse.macos :as macos]
             [kotoba.datom :as kd]
@@ -113,9 +113,9 @@
            "end tell")))
 
 (defn- b64 [path]
-  (.encodeToString (java.util.Base64/getEncoder)
-                   (java.nio.file.Files/readAllBytes
-                    (java.nio.file.Paths/get path (make-array String 0)))))
+  (kbytes/base64-encode
+                   (kio/read-all-bytes
+                    path)))
 
 (defn display-computer
   "A custom IComputer host that screenshots a SPECIFIC display (multi-monitor
