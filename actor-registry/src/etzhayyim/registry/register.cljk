@@ -18,19 +18,19 @@
 
    The registry MV counts ONLY quorum-validated agents — an emergent fold, and
    one that REJECTS un-vouched / duplicate actors (demonstrated below)."
-  (:require [etzhayyim.registry.agent :as ag]
+  (:require [kotoba.bytes :as kbytes] [etzhayyim.registry.agent :as ag]
             [kotoba.datom :as kd]
             [kotoba.lang.text :as str]
-            [clojure.pprint]
-            [clojure.java.io :as io])
-  (:import [java.util Base64]
+            [kotoba.pprint]
+            [kotoba.io :as io])
+  (:import
            [java.math BigInteger]))
 
 (def out-dir "../public/kotoba/agents")
 (def quorum-threshold 2)        ; 2-of-3 validators
 (def dht-r 2)                   ; replication factor
 
-(defn- b64 [^bytes b] (.encodeToString (Base64/getEncoder) b))
+(defn- b64 [^bytes b] (kbytes/base64-encode b))
 
 ;; ── CACAO membrane vouch (member → agent) ───────────────────────────────────
 (defn- vouch-preimage [iss aud att exp]
@@ -133,7 +133,7 @@
 
 (defn- write-edn! [path data]
   (io/make-parents path)
-  (spit path (with-out-str (clojure.pprint/pprint data))))
+  (spit path (with-out-str (kotoba.pprint/pprint data))))
 
 ;; ── the roster: valid (vouched) + two adversarial rejections ────────────────
 (defn -main [& _]
@@ -204,4 +204,4 @@
 
 (defn- write-edn! [path data]
   (io/make-parents path)
-  (spit path (with-out-str (clojure.pprint/pprint data))))
+  (spit path (with-out-str (kotoba.pprint/pprint data))))

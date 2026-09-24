@@ -7,10 +7,9 @@
    JDK Ed25519 (java 15+). Raw 32-byte public key = the last 32 bytes of the
    X.509 SubjectPublicKeyInfo (fixed 12-byte Ed25519 prefix). did:key multicodec
    = 0xed 0x01 ++ rawpub, multibase base58btc ('z' prefix)."
-  (:require [kotoba.lang.text :as str])
+  (:require [kotoba.bytes :as kbytes] [kotoba.lang.text :as str])
   (:import [java.security KeyPairGenerator Signature KeyFactory]
-           [java.security.spec X509EncodedKeySpec]
-           [java.util Base64]))
+           [java.security.spec X509EncodedKeySpec]))
 
 ;; ── base58btc (Bitcoin alphabet) ────────────────────────────────────────────
 (def ^:private B58 "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")
@@ -87,8 +86,8 @@
   [kp ^String msg]
   (let [s (doto (Signature/getInstance "Ed25519")
             (.initSign (.getPrivate kp))
-            (.update (.getBytes msg "UTF-8")))]
-    (.encodeToString (Base64/getEncoder) (.sign s))))
+            (.update (kbytes/utf8-bytes msg)))]
+    (kbytes/base64-encode (.sign s))))
 
 (defn verify
   "Verify a base64 signature over `msg` against a did:key. → boolean."
@@ -97,6 +96,6 @@
     (let [pub (raw-pub->public-key (did-key->raw-pub did))
           s (doto (Signature/getInstance "Ed25519")
               (.initVerify pub)
-              (.update (.getBytes msg "UTF-8")))]
-      (.verify s (.decode (Base64/getDecoder) sig-b64)))
+              (.update (kbytes/utf8-bytes msg)))]
+      (.verify s (kbytes/base64-decode-bytes sig-b64)))
     (catch Exception _ false)))
