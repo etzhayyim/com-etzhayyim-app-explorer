@@ -4,7 +4,7 @@
    constitutional axes) radiating across the upper arc, leaves per axis score,
    roots = LANDS/MEMBERS. Health colours the branch & leaves; it is a band, not
    a target, so we colour by 'in healthy range', not 'near a goal'."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def ^:private W 560)
 (def ^:private H 460)

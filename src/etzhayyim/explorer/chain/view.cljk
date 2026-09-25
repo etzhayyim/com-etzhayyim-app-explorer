@@ -10,7 +10,7 @@
    decode (kotoba-wasm Prolly) remain alongside; full kqe Datalog is R1."
   (:require [re-frame.core :as rf]
             [reagent.core :as r]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [etzhayyim.explorer.data :as data]
             [etzhayyim.explorer.ui :as ui]))
 

@@ -4,7 +4,7 @@
    fleet, and the optional libp2p live Datom tail. ADR-2606201610."
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [etzhayyim.explorer.nodes.graph :as g]
             [etzhayyim.explorer.live :as live]
             [etzhayyim.explorer.ui :as ui]))

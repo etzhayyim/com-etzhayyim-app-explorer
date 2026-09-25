@@ -14,7 +14,7 @@
    This is exactly Holochain's 'validate a source-chain entry from its author's
    key' — done client-side."
   (:require [kotoba.datom :as kd]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 ;; ── base58btc decode (no BigInteger in cljs — base-256 accumulation) ─────────
 (def ^:private B58 "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")

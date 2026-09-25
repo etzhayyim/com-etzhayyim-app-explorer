@@ -13,7 +13,7 @@
    does the fetch + parse — JSON via js->clj, EDN via cljs.reader (native, the
    whole reason this app is ClojureScript)."
   (:require [cljs.reader :as edn]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 ;; Same-origin in production; overridable for local dev via window.__DATA_BASE__
 ;; or the shadow-cljs :closure-define.

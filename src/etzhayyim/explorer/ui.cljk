@@ -2,7 +2,7 @@
   "Shared view helpers: a loading gate over re-frame resources and the heartbeat
    staleness badges (from /organism/health.json). ADR-2606201610."
   (:require [re-frame.core :as rf]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (defn loading-gate
   "Renders `child` once all `keys` resources are :ok; otherwise a loading/error
