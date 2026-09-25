@@ -4,7 +4,7 @@
    driving the whole component tree — ui gate, cards, bonsai SVG, force graph,
    census, chain verification — from populated re-frame state."
   (:require [cljs.test :refer-macros [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [reagent.dom.server :as rserver]
             [re-frame.core :as rf]
             [kotoba.datom :as kd]

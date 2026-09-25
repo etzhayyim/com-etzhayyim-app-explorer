@@ -7,7 +7,7 @@
       :live        {:on? bool, :events [..]}        ; libp2p Datom tail (R0)
       :chain       {:cid \"..\", :block {..}}}        ; explorer block inspector"
   (:require [re-frame.core :as rf]
-            [clojure.string]
+            [kotoba.lang.text]
             [etzhayyim.explorer.data :as data]
             [etzhayyim.explorer.wire :as wire]
             [etzhayyim.explorer.chain.datom :as kdatom]
@@ -210,7 +210,7 @@
 
 ;; ── /nodes: living-cell mesh QUERIED from the vitals kotoba EAVT snapshot ────
 (defn- green? [reflex]
-  (= "green" (some-> reflex name clojure.string/lower-case)))
+  (= "green" (some-> reflex name kotoba.lang.text/lower)))
 
 (defn- classify
   "Faithful port of etzhayyim.vitals/classify (the heartbeat's 生/休眠/死 rule)."
@@ -294,9 +294,9 @@
  :<- [:chain/txs]
  :<- [:chain-query]
  (fn [[txs q] _]
-   (when (and txs (not (clojure.string/blank? (:attr q))))
+   (when (and txs (not (kotoba.lang.text/blank? (:attr q))))
      (kdatom/query txs {:attr (:attr q)
-                        :value (when-not (clojure.string/blank? (:value q)) (:value q))}))))
+                        :value (when-not (kotoba.lang.text/blank? (:value q)) (:value q))}))))
 
 ;; ── live tail (libp2p Datom SSE, R0 progressive enhancement) ────────────────
 (rf/reg-event-db

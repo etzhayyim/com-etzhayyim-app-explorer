@@ -13,7 +13,7 @@
    writers (CID = \"b\" + sha256-hex over canonical JSON {prev,datoms})."
   (:require [kotoba.datom :as kd]
             [cljs.reader :as edn]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             ["js-sha256" :as jssha]))
 
 ;; Bind the host sha-256 seam once, at namespace load. js-sha256's `sha256`

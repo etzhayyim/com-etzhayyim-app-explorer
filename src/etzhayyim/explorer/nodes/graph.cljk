@@ -6,7 +6,7 @@
 
    Computes a fixed number of iterations synchronously; the dataset is ~100
    nodes so this is cheap and fine to run in render-prep."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def ^:private W 640)
 (def ^:private H 480)
@@ -76,7 +76,7 @@
 (def viewbox (str "0 0 " W " " H))
 
 (defn reflex-color [reflex]
-  (case (some-> reflex str/lower-case)
+  (case (some-> reflex str/lower)
     "green" "var(--leaf)"
     "red"   "var(--clay)"
     "absent" "var(--absent)"

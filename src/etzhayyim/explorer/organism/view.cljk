@@ -3,7 +3,7 @@
    the aliveness 5-tuple (recomputed in-browser), the pulse commit stream, and
    joucho mood. ADR-2606201610."
   (:require [re-frame.core :as rf]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [etzhayyim.explorer.organism.aliveness :as a]
             [etzhayyim.explorer.organism.bonsai :as bonsai]
             [etzhayyim.explorer.ui :as ui]))
@@ -16,7 +16,7 @@
               0)
         bar-cls (case status :ok "bar" :low "bar low" :high "bar band" "bar")]
     [:div.dial {:key (name key)}
-     [:div.k (str/upper-case (name key))]
+     [:div.k (str/upper (name key))]
      [:div
       [:div.lbl label " " [:span.muted ja]
        (if (= source :computed)

@@ -9,7 +9,7 @@
 
    Health is a homeostatic band, NOT a target (non-eschatological,
    ADR-2605192100): each metric carries a [lo hi] range, not a goal."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; Homeostatic ranges (the ideal-state prior). :lo/:hi bound a healthy band.
 (def bands
